@@ -1,5 +1,5 @@
 /*!
- * express-pydantic
+ * express-joi-model
  * MIT Licensed
  */
 

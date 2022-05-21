@@ -6,18 +6,18 @@ const app = express()
 
 class RequestModel extends BaseModel {
     static get __schema() {
-        return Joi.object({
+        return {
             a: Joi.number(),
             b: Joi.string()
-        })
+        }
     }
 }
 
 class ResponseModel extends BaseModel {
     static get __schema() {
-        return Joi.object({
+        return {
             res: Joi.boolean()
-        })
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 /*!
- * express-pydantic
+ * express-joi-model
  * MIT Licensed
  */
 
@@ -11,7 +11,7 @@ const ValidationError = require('./error-handling.js')
 
 class BaseModel extends Object {
     static get __schema() {
-        return null
+        return {}
     }
 
     static get __defaultValidationClass() {
@@ -20,7 +20,7 @@ class BaseModel extends Object {
 
     constructor(obj) {
         super({})
-        const thisSchema = this.constructor.__schema
+        const thisSchema = Joi.object(this.constructor.__schema)
         const { error, value } = thisSchema.validate(obj, {
             presence: 'required',
             stripUnknown: true
@@ -86,7 +86,7 @@ function putValidationMiddleware(cfg) {
         for (let [key, value] of keyToModelMap.entries()) {
             try {
                 const validatedModelObj = new value(req[key])
-                req[`original-${key}`] = req[key]
+                req[`original_${key}`] = req[key]
                 req[key] = validatedModelObj
             } catch (error) {
                 if (error instanceof ValidationError) {

@@ -1,8 +1,8 @@
 /*!
- * express-pydantic
+ * express-joi-model
  * MIT Licensed
  */
 
 'use strict';
 
-module.exports = require('./src/express-pydantic.js')
+module.exports = require('./src/express-joi-model.js')

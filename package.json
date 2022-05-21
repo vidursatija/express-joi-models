@@ -1,15 +1,27 @@
 {
-  "name": "express-pydantic",
+  "name": "express-joi-models",
   "version": "1.0.0",
-  "description": "Pydantic type objects for Express.js",
+  "description": "A middleware for validating express inputs using Joi schemas using classes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "example": "node example/simple.js"
   },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "joi",
+    "express",
+    "validation",
+    "middleware",
+    "classes"
+  ],
   "author": "Vidur Satija",
   "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.1"
+  "devDependencies": {
+    "express": "^4.18.1",
+    "joi": "^17.6.0"
   },
   "peerDependencies": {
     "joi": "17"

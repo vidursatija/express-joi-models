@@ -8,7 +8,10 @@
     "example": "node example/simple.js"
   },
   "files": [
-    "index.js"
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "src/*"
   ],
   "keywords": [
     "joi",

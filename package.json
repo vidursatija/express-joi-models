@@ -1,0 +1,31 @@
+{
+  "name": "express-pydantic",
+  "version": "1.0.0",
+  "description": "Pydantic type objects for Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vidur Satija",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "peerDependencies": {
+    "joi": "17"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidursatija/express-joi-models.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vidursatija/express-joi-models/issues"
+  },
+  "homepage": "https://github.com/vidursatija/express-joi-models#readme"
+}

@@ -1,37 +1,44 @@
-const express = require('express')
-const { BaseModel, putValidationMiddleware } = require('../index.js')
-const Joi = require('joi')
+const express = require("express");
+const { BaseModel, putValidationMiddleware } = require("../index.js");
+const Joi = require("joi");
 
-const app = express()
+const app = express();
 
 class RequestModel extends BaseModel {
-    static get __schema() {
-        return {
-            a: Joi.number(),
-            b: Joi.string()
-        }
-    }
+  static get __schema() {
+    return {
+      a: Joi.number(),
+      b: Joi.string(),
+    };
+  }
 }
 
 class ResponseModel extends BaseModel {
-    static get __schema() {
-        return {
-            res: Joi.boolean()
-        }
-    }
+  static get __schema() {
+    return {
+      res: Joi.boolean(),
+    };
+  }
 }
 
-app.use(express.json())
+app.use(express.json());
 
+app.post(
+  "/correct",
+  putValidationMiddleware({ body: RequestModel, response: ResponseModel }),
+  function (req, res) {
+    console.log(req.body);
+    return res.json({ res: true });
+  }
+);
 
-app.post('/correct', putValidationMiddleware({ body: RequestModel, response: ResponseModel }), function (req, res) {
-    console.log(req.body)
-    return res.json({ res: true })
-})
+app.post(
+  "/wrong",
+  putValidationMiddleware({ body: RequestModel, response: ResponseModel }),
+  function (req, res) {
+    console.log(req.body);
+    return res.json({ res: 1 });
+  }
+);
 
-app.post('/wrong', putValidationMiddleware({ body: RequestModel, response: ResponseModel }), function (req, res) {
-    console.log(req.body)
-    return res.json({ res: 1 })
-})
-
-app.listen(8080)
+app.listen(8080);

@@ -3,6 +3,6 @@
  * MIT Licensed
  */
 
-'use strict';
+"use strict";
 
-module.exports = require('./src/express-joi-model.js')
+module.exports = require("./src/express-joi-model.js");

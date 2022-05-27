@@ -17,6 +17,10 @@ class BaseModel extends Object {
     return ValidationError;
   }
 
+  static get __joi() {
+    return Joi.object(this.__schema)
+  }
+
   constructor(obj) {
     super({});
     if (obj.constructor === this.constructor) {
@@ -25,7 +29,7 @@ class BaseModel extends Object {
       }
       return;
     }
-    const thisSchema = Joi.object(this.constructor.__schema);
+    const thisSchema = this.constructor.__joi;
     const { error, value } = thisSchema.validate(obj, {
       presence: "required",
       stripUnknown: true,

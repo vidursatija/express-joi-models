@@ -1,6 +1,6 @@
 {
   "name": "express-joi-model",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A middleware for validating express inputs using Joi schemas using classes",
   "main": "index.js",
   "scripts": {

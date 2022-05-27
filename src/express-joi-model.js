@@ -35,7 +35,7 @@ class BaseModel extends Object {
       stripUnknown: true,
     });
     if (error !== undefined) {
-      throw new this.constructor.__defaultValidationClass(error);
+      throw new this.constructor.__defaultValidationClass(this.constructor.name, error);
     }
     for (const [keyK, valueV] of Object.entries(value)) {
       this[keyK] = valueV;
@@ -98,7 +98,7 @@ function putValidationMiddleware(cfg) {
         req[key] = validatedModelObj;
       } catch (error) {
         if (error instanceof ValidationError) {
-          return res.status(400).end(error.message);
+          return res.status(400).end(error.errorStr);
         } else {
           return res.status(500).end(error.message);
         }

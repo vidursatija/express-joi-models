@@ -17,9 +17,11 @@ function buildErrorString(err) {
 }
 
 class ValidationError extends Error {
-  constructor(joiError) {
+  constructor(modelName, joiError) {
     const errorStr = buildErrorString(joiError);
-    super(errorStr);
+    super(`${modelName}: ${errorStr}`);
+    this.name = this.constructor.name
+    this.errorStr = errorStr
   }
 }
 
